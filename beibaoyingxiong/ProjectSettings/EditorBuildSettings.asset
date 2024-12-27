@@ -1,0 +1,14 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Jet Fire/Scenes/Menu.unity
+    guid: f2c0b7a06c2f2d54988b5f9300b25bbf
+  - enabled: 1
+    path: Assets/Jet Fire/Scenes/Play.unity
+    guid: b2c921e187da866488d0b772af0ea707
+  m_configObjects: {}

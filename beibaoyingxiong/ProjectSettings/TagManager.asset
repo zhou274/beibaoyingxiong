@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - EBullet
+  - Coin
+  - EGunStay
+  - EnemyFly
+  - TypeFly
+  - PBullet5
+  - Hurt
+  - PBullet6
+  - Trap
+  - PBullet3
+  - PBullet4
+  - PBullet1
+  - PBullet2
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Walkable
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: BackGround
+    uniqueID: 2999629059
+    locked: 0
+  - name: AwayObstacle
+    uniqueID: 1015816435
+    locked: 0
+  - name: Item
+    uniqueID: 2297548525
+    locked: 0
+  - name: Enemy
+    uniqueID: 364002157
+    locked: 0
+  - name: Player
+    uniqueID: 1819565037
+    locked: 0
+  - name: Ground
+    uniqueID: 611274441
+    locked: 0
+  - name: Bullet
+    uniqueID: 1195745289
+    locked: 0
+  - name: Canvas
+    uniqueID: 4164392163
+    locked: 0
