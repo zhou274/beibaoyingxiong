@@ -6,6 +6,8 @@ using TTSDK.UNBridgeLib.LitJson;
 using TTSDK;
 using StarkSDKSpace;
 using System.Collections.Generic;
+using TMPro;
+
 
 public class UIManager : MonoBehaviour
 {
@@ -17,11 +19,11 @@ public class UIManager : MonoBehaviour
 
     public RectTransform playerHPBar;
 
-    public Text 
+    public Text
         coinText,
-        distanceTraveledText,
-        scoreText,
-        bestScoreText;
+        distanceTraveledText;
+
+    public TextMeshProUGUI scoreText, bestScoreText;
 
     public Image soundBtn;
 
@@ -31,6 +33,7 @@ public class UIManager : MonoBehaviour
 
     public string clickid;
     private StarkAdManager starkAdManager;
+
     // Behaviour messages
     void Awake()
     {
@@ -55,6 +58,7 @@ public class UIManager : MonoBehaviour
         {
             soundBtn.sprite = soundOff;
         }
+
     }
 
     public void UpdateCoin(float coinAmout)
@@ -70,17 +74,17 @@ public class UIManager : MonoBehaviour
     public void UpdateScore(float distance)
     {
         PlayerPrefs.SetFloat("Score", distance);
-        scoreText.text = "Score: " + distance;
+        scoreText.text = "得分: " + distance;
         float best = PlayerPrefs.GetFloat(Constants.BEST_SCORE, 0);
 
         if (distance > best)
         {
             PlayerPrefs.SetFloat(Constants.BEST_SCORE, distance);
-            bestScoreText.text = "Best: " + distance;
+            bestScoreText.text = "最高: " + distance;
         }
         else
         {
-            bestScoreText.text = "Best: " + best;
+            bestScoreText.text = "最高: " + best;
         }
     }
 
@@ -117,7 +121,7 @@ public class UIManager : MonoBehaviour
     }
     public void ContinueBtn_Onclick()
     {
-        ShowVideoAd("192if3b93qo6991ed0",
+        ShowVideoAd("18i600gg8b9ag1ek2e",
             (bol) => {
                 if (bol)
                 {
@@ -155,11 +159,38 @@ public class UIManager : MonoBehaviour
     
     public void GameOverShow()
     {
-        
 
+        ShowInterstitialAd("2d2ajifhd53c4flfj2",
+           () => {
+               Debug.LogError("--插屏广告完成--");
+
+           },
+           (it, str) => {
+               Debug.LogError("Error->" + str);
+           });
         gameOverMenu.SetActive(true);
         Time.timeScale = 0.0f;
     }
+
+
+    /// <summary>
+    /// 播放插屏广告
+    /// </summary>
+    /// <param name="adId"></param>
+    /// <param name="errorCallBack"></param>
+    /// <param name="closeCallBack"></param>
+    public void ShowInterstitialAd(string adId, System.Action closeCallBack, System.Action<int, string> errorCallBack)
+    {
+        starkAdManager = StarkSDK.API.GetStarkAdManager();
+        if (starkAdManager != null)
+        {
+            var mInterstitialAd = starkAdManager.CreateInterstitialAd(adId, errorCallBack, closeCallBack);
+            mInterstitialAd.Load();
+            mInterstitialAd.Show();
+        }
+    }
+
+    
 
     // Sound button is clicked
     public void SoundBtn_Onclick()
