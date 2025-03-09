@@ -162,7 +162,7 @@ public class UIManager : MonoBehaviour
 
         ShowInterstitialAd("2d2ajifhd53c4flfj2",
            () => {
-               Debug.LogError("--插屏广告完成--");
+               Debug.Log("--插屏广告完成--");
 
            },
            (it, str) => {
